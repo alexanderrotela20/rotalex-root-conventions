@@ -1,0 +1,121 @@
+import com.vanniktech.maven.publish.GradlePlugin
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
+plugins {
+	`kotlin-dsl`
+	`java-gradle-plugin`
+	alias(libs.plugins.mavenPublish)
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+kotlin {
+	compilerOptions {
+		jvmTarget = JvmTarget.fromTarget(libs.versions.jvmTarget.get())
+	}
+}
+
+dependencies {
+	compileOnly(libs.android.gradlePlugin)
+	compileOnly(libs.android.tools.common)
+	compileOnly(libs.compose.gradlePlugin)
+	compileOnly(libs.compose.multiplatform.gradlePlugin)
+	compileOnly(libs.kotlin.gradlePlugin)
+	compileOnly(libs.ksp.gradlePlugin)
+
+}
+
+tasks {
+	validatePlugins {
+		enableStricterValidation.set(true)
+		failOnWarning.set(true)
+	}
+}
+
+
+gradlePlugin {
+
+	plugins {
+		register("androidApplication") {
+			id = libs.plugins.convention.android.application.get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidApplicationConventionPlugin"
+		}
+		register("androidLibrary") {
+			id = libs.plugins.convention.android.library.asProvider().get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidLibraryConventionPlugin"
+		}
+		register("androidLibraryCompose") {
+			id = libs.plugins.convention.android.library.compose.get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidLibraryComposeConventionPlugin"
+		}
+		register("androidLibraryNative") {
+			id = libs.plugins.convention.android.library.native.get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidLibraryNativeConventionPlugin"
+		}
+		register("androidTest") {
+			id = libs.plugins.convention.android.test.get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidTestConventionPlugin"
+		}
+		register("androidLint") {
+			id = libs.plugins.convention.android.lint.get().pluginId
+			implementationClass = "com.rotalex.convention.AndroidLintConventionPlugin"
+		}
+		register("jvmLibrary") {
+			id = libs.plugins.convention.jvm.library.get().pluginId
+			implementationClass = "com.rotalex.convention.JvmLibraryConventionPlugin"
+		}
+		register("kotlinMultiplatformLibrary") {
+			id = libs.plugins.convention.kotlin.multiplatform.library.asProvider().get().pluginId
+			implementationClass = "com.rotalex.convention.KotlinMultiplatformLibraryConventionPlugin"
+		}
+		register("kotlinMultiplatformLibraryCompose") {
+			id = libs.plugins.convention.kotlin.multiplatform.library.compose.get().pluginId
+			implementationClass = "com.rotalex.convention.KotlinMultiplatformLibraryComposeConventionPlugin"
+		}
+		register("koin") {
+			id = libs.plugins.convention.koin.asProvider().get().pluginId
+			implementationClass = "com.rotalex.convention.KoinConventionPlugin"
+		}
+		register("koinAnnotations") {
+			id = libs.plugins.convention.koin.annotations.get().pluginId
+			implementationClass = "com.rotalex.convention.KoinAnnotationsConventionPlugin"
+		}
+		register("ksp") {
+			id = libs.plugins.convention.ksp.get().pluginId
+			implementationClass = "com.rotalex.convention.KspConventionPlugin"
+		}
+	}
+
+}
+
+
+project.configure<MavenPublishBaseExtension> {
+	pom {
+		name = project.name
+		description = "A reusable set of Gradle convention plugins to streamline the build process for my projects."
+		url = "https://github.com/alexanderrotela20/rotalex-root-conventions"
+		licenses {
+			license {
+				name.set("Apache-2.0")
+				url.set("https://www.apache.org/licenses/LICENSE-2.0")
+			}
+		}
+		developers {
+			developer {
+				id.set("alexanderrotela20")
+				name.set("Alexander Rotela")
+			}
+		}
+		scm {
+			connection.set("scm:git:https://github.com/alexanderrotela20/rotalex-root-conventions.git")
+			developerConnection.set("scm:git:ssh://github.com/alexanderrotela20/rotalex-root-conventions.git")
+			url.set("https://github.com/alexanderrotela20/rotalex-root-conventions")
+		}
+	}
+	publishToMavenCentral(true)
+	signAllPublications()
+}
