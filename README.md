@@ -33,7 +33,7 @@ plugins {
 This project is set up to be published to a Maven repository. To publish a new version, ensure your credentials are configured and run the following command:
 
 ```bash
-./gradlew publish
+./gradlew publishAllPublicationsToMavenCentralRepository
 ```
 > [!NOTE]
 > Remember to update the version number in the project's build configuration before publishing.
