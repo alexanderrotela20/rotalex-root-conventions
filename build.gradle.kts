@@ -1,4 +1,3 @@
-import com.vanniktech.maven.publish.GradlePlugin
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,6 +6,9 @@ plugins {
 	`java-gradle-plugin`
 	alias(libs.plugins.mavenPublish)
 }
+
+group = "com.rotalex.convention"
+version = "1.0.0"
 
 java {
 	sourceCompatibility = JavaVersion.VERSION_17
@@ -70,11 +72,13 @@ gradlePlugin {
 		}
 		register("kotlinMultiplatformLibrary") {
 			id = libs.plugins.convention.kotlin.multiplatform.library.asProvider().get().pluginId
-			implementationClass = "com.rotalex.convention.KotlinMultiplatformLibraryConventionPlugin"
+			implementationClass =
+				"com.rotalex.convention.KotlinMultiplatformLibraryConventionPlugin"
 		}
 		register("kotlinMultiplatformLibraryCompose") {
 			id = libs.plugins.convention.kotlin.multiplatform.library.compose.get().pluginId
-			implementationClass = "com.rotalex.convention.KotlinMultiplatformLibraryComposeConventionPlugin"
+			implementationClass =
+				"com.rotalex.convention.KotlinMultiplatformLibraryComposeConventionPlugin"
 		}
 		register("koin") {
 			id = libs.plugins.convention.koin.asProvider().get().pluginId
@@ -96,7 +100,8 @@ gradlePlugin {
 project.configure<MavenPublishBaseExtension> {
 	pom {
 		name = project.name
-		description = "A reusable set of Gradle convention plugins to streamline the build process for my projects."
+		description =
+			"A reusable set of Gradle convention plugins to streamline the build process for my projects."
 		url = "https://github.com/alexanderrotela20/rotalex-root-conventions"
 		licenses {
 			license {
