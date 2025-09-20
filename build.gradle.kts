@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.GradlePlugin
+import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -7,7 +9,7 @@ plugins {
 	alias(libs.plugins.mavenPublish)
 }
 
-group = "com.rotalex.convention"
+group = "com.rotalex"
 version = "1.0.0"
 
 java {
@@ -96,12 +98,16 @@ gradlePlugin {
 
 }
 
-
 project.configure<MavenPublishBaseExtension> {
+	coordinates(
+		groupId = project.group.toString(),
+		artifactId = project.name,
+		version = project.version.toString()
+	)
 	pom {
-		name = project.name
-		description =
-			"A reusable set of Gradle convention plugins to streamline the build process for my projects."
+		name = "Gradle Conventions for Rotalex Projects"
+		description = "A reusable set of Gradle convention plugins to streamline the build process for my projects."
+		inceptionYear = "2025"
 		url = "https://github.com/alexanderrotela20/rotalex-root-conventions"
 		licenses {
 			license {
@@ -115,11 +121,13 @@ project.configure<MavenPublishBaseExtension> {
 				name.set("Alexander Rotela")
 			}
 		}
+
 		scm {
 			connection.set("scm:git:https://github.com/alexanderrotela20/rotalex-root-conventions.git")
 			developerConnection.set("scm:git:ssh://github.com/alexanderrotela20/rotalex-root-conventions.git")
 			url.set("https://github.com/alexanderrotela20/rotalex-root-conventions")
 		}
+
 	}
 	publishToMavenCentral(true)
 	signAllPublications()
