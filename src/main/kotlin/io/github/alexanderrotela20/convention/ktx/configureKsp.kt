@@ -1,4 +1,4 @@
-package com.rotalex.convention.ktx
+package io.github.alexanderrotela20.convention.ktx
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project

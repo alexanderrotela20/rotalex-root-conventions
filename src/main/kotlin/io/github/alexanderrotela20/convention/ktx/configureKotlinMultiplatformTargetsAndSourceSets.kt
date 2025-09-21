@@ -1,4 +1,4 @@
-package com.rotalex.convention.ktx
+package io.github.alexanderrotela20.convention.ktx
 
 import org.gradle.kotlin.dsl.getValue
 import org.gradle.kotlin.dsl.invoke

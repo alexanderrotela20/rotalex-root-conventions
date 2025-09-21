@@ -1,18 +1,18 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
 /**
- * Applies a Rotalex convention plugin by its short name from the 'com.rotalex.convention' group.
+ * Applies a Rotalex convention plugin by its short name from the 'io.github.alexanderrotela20.convention' group.
  *
- * For example, to apply the `com.rotalex.convention.android.library` plugin,
+ * For example, to apply the `io.github.alexanderrotela20.convention.android.library` plugin,
  * you can use `convention("android.library")`.
  *
  * @param name The short name of the plugin (e.g., "android.library", "koin.annotations", "kotlin.multiplatform.library").
  */
 fun PluginDependenciesSpec.convention(name: String): PluginDependencySpec {
-    return id("com.rotalex.convention.$name")
+    return id("io.github.alexanderrotela20.convention.$name")
 }
 
 fun PluginDependenciesSpec.androidApplication(): PluginDependencySpec {

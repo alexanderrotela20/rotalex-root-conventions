@@ -19,8 +19,8 @@ ensuring consistency and reducing boilerplate code in the `build.gradle.kts` fil
 To use these plugins, import the desired convention helper and apply it in your module's `build.gradle.kts` file. This provides a cleaner, more readable way to apply conventions.
 
 ```kotlin
-import com.rotalex.convention.androidLibrary
-import com.rotalex.convention.androidLibraryCompose
+import io.github.alexanderrotela20.androidLibrary
+import io.github.alexanderrotela20.androidLibraryCompose
 
 plugins {
 	androidLibrary()
@@ -33,7 +33,7 @@ plugins {
 This project is set up to be published to a Maven repository. To publish a new version, ensure your credentials are configured and run the following command:
 
 ```bash
-./gradlew publishAllPublicationsToMavenCentral
+./gradlew publishToMavenCentral
 ```
 > [!NOTE]
 > Remember to update the version number in the project's build configuration before publishing.

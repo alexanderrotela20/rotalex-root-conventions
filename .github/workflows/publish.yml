@@ -44,12 +44,3 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_PASSWORD }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
-
-      - name: Extract release notes
-        id: extract-release-notes
-        uses: ffurrer2/extract-release-notes@cae32133495112d23e3569ad04fef240ba4e7bc8 # v2.3.0
-
-      - name: Create release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release create ${{ github.ref_name }} --draft --notes '${{ steps.extract-release-notes.outputs.release_notes }}' --title ${{ github.ref_name }} --verify-tag

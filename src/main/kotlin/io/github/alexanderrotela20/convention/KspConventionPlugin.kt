@@ -1,9 +1,9 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension
-import com.rotalex.convention.ktx.configureKsp
-import com.rotalex.convention.ktx.libs
+import io.github.alexanderrotela20.convention.ktx.configureKsp
+import io.github.alexanderrotela20.convention.ktx.libs
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project

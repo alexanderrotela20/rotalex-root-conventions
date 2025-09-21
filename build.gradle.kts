@@ -9,7 +9,7 @@ plugins {
 	alias(libs.plugins.mavenPublish)
 }
 
-group = "com.rotalex"
+group = "io.github.alexanderrotela20.convention"
 version = "1.0.0"
 
 java {
@@ -46,53 +46,53 @@ gradlePlugin {
 	plugins {
 		register("androidApplication") {
 			id = libs.plugins.convention.android.application.get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidApplicationConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidApplicationConventionPlugin"
 		}
 		register("androidLibrary") {
 			id = libs.plugins.convention.android.library.asProvider().get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidLibraryConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryConventionPlugin"
 		}
 		register("androidLibraryCompose") {
 			id = libs.plugins.convention.android.library.compose.get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidLibraryComposeConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryComposeConventionPlugin"
 		}
 		register("androidLibraryNative") {
 			id = libs.plugins.convention.android.library.native.get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidLibraryNativeConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryNativeConventionPlugin"
 		}
 		register("androidTest") {
 			id = libs.plugins.convention.android.test.get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidTestConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidTestConventionPlugin"
 		}
 		register("androidLint") {
 			id = libs.plugins.convention.android.lint.get().pluginId
-			implementationClass = "com.rotalex.convention.AndroidLintConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.AndroidLintConventionPlugin"
 		}
 		register("jvmLibrary") {
 			id = libs.plugins.convention.jvm.library.get().pluginId
-			implementationClass = "com.rotalex.convention.JvmLibraryConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.JvmLibraryConventionPlugin"
 		}
 		register("kotlinMultiplatformLibrary") {
 			id = libs.plugins.convention.kotlin.multiplatform.library.asProvider().get().pluginId
 			implementationClass =
-				"com.rotalex.convention.KotlinMultiplatformLibraryConventionPlugin"
+				"io.github.alexanderrotela20.convention.KotlinMultiplatformLibraryConventionPlugin"
 		}
 		register("kotlinMultiplatformLibraryCompose") {
 			id = libs.plugins.convention.kotlin.multiplatform.library.compose.get().pluginId
 			implementationClass =
-				"com.rotalex.convention.KotlinMultiplatformLibraryComposeConventionPlugin"
+				"io.github.alexanderrotela20.convention.KotlinMultiplatformLibraryComposeConventionPlugin"
 		}
 		register("koin") {
 			id = libs.plugins.convention.koin.asProvider().get().pluginId
-			implementationClass = "com.rotalex.convention.KoinConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.KoinConventionPlugin"
 		}
 		register("koinAnnotations") {
 			id = libs.plugins.convention.koin.annotations.get().pluginId
-			implementationClass = "com.rotalex.convention.KoinAnnotationsConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.KoinAnnotationsConventionPlugin"
 		}
 		register("ksp") {
 			id = libs.plugins.convention.ksp.get().pluginId
-			implementationClass = "com.rotalex.convention.KspConventionPlugin"
+			implementationClass = "io.github.alexanderrotela20.convention.KspConventionPlugin"
 		}
 	}
 

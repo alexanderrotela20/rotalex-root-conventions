@@ -159,16 +159,16 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "gradleMavenPublish" }
 
 # Plugins defined by this project
-convention-android-application = { id = "com.rotalex.convention.android.application" }
-convention-android-library = { id = "com.rotalex.convention.android.library" }
-convention-android-library-compose = { id = "com.rotalex.convention.android.library.compose" }
-convention-android-library-native = { id = "com.rotalex.convention.android.library.native" }
-convention-android-lint = { id = "com.rotalex.convention.android.lint" }
-convention-android-test = { id = "com.rotalex.convention.android.test" }
-convention-jvm-library = { id = "com.rotalex.convention.jvm.library" }
-convention-kotlin-multiplatform-library = { id = "com.rotalex.convention.kotlin.multiplatform.library" }
-convention-kotlin-multiplatform-library-compose = { id = "com.rotalex.convention.kotlin.multiplatform.library.compose" }
-convention-koin = { id = "com.rotalex.convention.koin" }
-convention-koin-annotations = { id = "com.rotalex.convention.koin.annotations" }
-convention-ksp = { id = "com.rotalex.convention.ksp" }
+convention-android-application = { id = "io.github.alexanderrotela20.convention.android.application" }
+convention-android-library = { id = "io.github.alexanderrotela20.convention.android.library" }
+convention-android-library-compose = { id = "io.github.alexanderrotela20.convention.android.library.compose" }
+convention-android-library-native = { id = "io.github.alexanderrotela20.convention.android.library.native" }
+convention-android-lint = { id = "io.github.alexanderrotela20.convention.android.lint" }
+convention-android-test = { id = "io.github.alexanderrotela20.convention.android.test" }
+convention-jvm-library = { id = "io.github.alexanderrotela20.convention.jvm.library" }
+convention-kotlin-multiplatform-library = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library" }
+convention-kotlin-multiplatform-library-compose = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library.compose" }
+convention-koin = { id = "io.github.alexanderrotela20.convention.koin" }
+convention-koin-annotations = { id = "io.github.alexanderrotela20.convention.koin.annotations" }
+convention-ksp = { id = "io.github.alexanderrotela20.convention.ksp" }
 

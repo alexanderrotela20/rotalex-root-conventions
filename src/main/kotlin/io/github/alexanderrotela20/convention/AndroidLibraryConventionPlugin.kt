@@ -1,12 +1,12 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
-import com.rotalex.convention.ktx.androidTargetSdk
-import com.rotalex.convention.ktx.configureKotlinAndroid
-import com.rotalex.convention.ktx.disableUnnecessaryAndroidTests
-import com.rotalex.convention.ktx.libs
-import com.rotalex.convention.ktx.rotalexConvention
+import io.github.alexanderrotela20.convention.ktx.androidTargetSdk
+import io.github.alexanderrotela20.convention.ktx.configureKotlinAndroid
+import io.github.alexanderrotela20.convention.ktx.disableUnnecessaryAndroidTests
+import io.github.alexanderrotela20.convention.ktx.libs
+import io.github.alexanderrotela20.convention.ktx.rotalexConvention
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

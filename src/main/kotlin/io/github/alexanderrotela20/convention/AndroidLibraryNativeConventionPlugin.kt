@@ -1,9 +1,9 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
-import com.rotalex.convention.ktx.androidNdkVersion
+import io.github.alexanderrotela20.convention.ktx.androidNdkVersion
 
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin

@@ -1,9 +1,9 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.gradle.TestExtension
-import com.rotalex.convention.ktx.androidTargetSdk
-import com.rotalex.convention.ktx.configureKotlinAndroid
-import com.rotalex.convention.ktx.libs
+import io.github.alexanderrotela20.convention.ktx.androidTargetSdk
+import io.github.alexanderrotela20.convention.ktx.configureKotlinAndroid
+import io.github.alexanderrotela20.convention.ktx.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

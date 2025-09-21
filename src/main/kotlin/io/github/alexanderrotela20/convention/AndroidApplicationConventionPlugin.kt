@@ -1,14 +1,14 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.variant.ApplicationAndroidComponentsExtension
-import com.rotalex.convention.ktx.BuildType
-import com.rotalex.convention.ktx.androidTargetSdk
-import com.rotalex.convention.ktx.buildTime
-import com.rotalex.convention.ktx.configureAndroidCompose
-import com.rotalex.convention.ktx.configureKotlinAndroid
-import com.rotalex.convention.ktx.libs
-import com.rotalex.convention.ktx.rotalexConvention
+import io.github.alexanderrotela20.convention.ktx.BuildType
+import io.github.alexanderrotela20.convention.ktx.androidTargetSdk
+import io.github.alexanderrotela20.convention.ktx.buildTime
+import io.github.alexanderrotela20.convention.ktx.configureAndroidCompose
+import io.github.alexanderrotela20.convention.ktx.configureKotlinAndroid
+import io.github.alexanderrotela20.convention.ktx.libs
+import io.github.alexanderrotela20.convention.ktx.rotalexConvention
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply

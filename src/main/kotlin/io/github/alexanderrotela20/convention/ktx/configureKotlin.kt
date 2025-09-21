@@ -1,4 +1,4 @@
-package com.rotalex.convention.ktx
+package io.github.alexanderrotela20.convention.ktx
 
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign

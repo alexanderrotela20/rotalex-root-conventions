@@ -1,4 +1,4 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.api.dsl.LibraryExtension

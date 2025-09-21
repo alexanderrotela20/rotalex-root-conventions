@@ -1,9 +1,9 @@
-package com.rotalex.convention
+package io.github.alexanderrotela20.convention
 
 import com.android.build.gradle.LibraryExtension
-import com.rotalex.convention.ktx.configureAndroidCompose
-import com.rotalex.convention.ktx.libs
-import com.rotalex.convention.ktx.rotalexConvention
+import io.github.alexanderrotela20.convention.ktx.configureAndroidCompose
+import io.github.alexanderrotela20.convention.ktx.libs
+import io.github.alexanderrotela20.convention.ktx.rotalexConvention
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
