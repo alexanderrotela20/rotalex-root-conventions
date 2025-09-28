@@ -39,4 +39,4 @@ val Project.buildTime by lazy {
 		.format(Instant.now())
 }
 
-val rotalexConvention: (name: String) -> String = { "com.rotalex.convention.$it" }
+val rotalexConvention: (name: String) -> String = { "io.github.alexanderrotela20.convention.$it" }
