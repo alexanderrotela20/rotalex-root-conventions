@@ -22,7 +22,7 @@ class AndroidLibraryNativeConventionPlugin : Plugin<Project> {
 					configure<LibraryExtension>(::configureAndroidNative)
 
 				else -> {
-					throw GradleException("The plugin 'idroid.android.library.native' cannot be applied.")
+					throw GradleException("The plugin 'io.github.alexanderrotela20.convention.android-library-native' cannot be applied.")
 				}
 			}
 		}

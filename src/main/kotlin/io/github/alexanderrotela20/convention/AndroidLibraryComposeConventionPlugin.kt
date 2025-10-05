@@ -15,15 +15,10 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
 		with(target) {
 			pluginManager.apply {
 				apply(rotalexConvention("android.library"))
+				apply(libs.findPlugin("compose").get().get().pluginId)
 			}
-			when {
-				pluginManager.hasPlugin("com.android.library") -> {
-					apply(libs.findPlugin("compose").get().get().pluginId)
-					configureAndroidCompose(extensions.getByType<LibraryExtension>())
-				}
-				else -> {
-					throw GradleException("Plugin 'com.android.library' must be applied before 'org.jetbrains.kotlin.plugin.compose'")
-				}
+			extensions.getByType<LibraryExtension>().apply {
+				configureAndroidCompose(this)
 			}
 		}
 	}
