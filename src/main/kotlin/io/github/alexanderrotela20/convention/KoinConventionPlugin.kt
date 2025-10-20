@@ -1,5 +1,6 @@
 package io.github.alexanderrotela20.convention
 
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.gradle.LibraryExtension
 import io.github.alexanderrotela20.convention.ktx.libs
 import org.gradle.api.Plugin
@@ -37,16 +38,23 @@ class KoinConventionPlugin : Plugin<Project> {
 						}
 					}
 				}
-			} else if (plugins.hasPlugin("com.android.library")
-					.or(plugins.hasPlugin("com.android.application"))) {
-				configure<LibraryExtension> {
-					dependencies {
-						add("implementation", platform(libs.findLibrary("koin.bom").get()))
-						add("implementation", libs.findBundle("koin-android").get())
+			} else {
+				if (plugins.hasPlugin("com.android.library")) {
+					configure<LibraryExtension> {
+						dependencies {
+							add("implementation", platform(libs.findLibrary("koin.bom").get()))
+							add("implementation", libs.findBundle("koin-android").get())
+						}
+					}
+				} else if (plugins.hasPlugin("com.android.application")) {
+					configure<ApplicationExtension> {
+						dependencies {
+							add("implementation", platform(libs.findLibrary("koin.bom").get()))
+							add("implementation", libs.findBundle("koin-android").get())
+						}
 					}
 				}
 			}
-
 		}
 	}
 }

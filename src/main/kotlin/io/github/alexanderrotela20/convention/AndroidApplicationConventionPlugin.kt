@@ -27,7 +27,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 				//apply("com.dropbox.dependency-guard")
 			}
 
-			extensions.configure<ApplicationExtension> {
+			configure<ApplicationExtension> {
+
 				configureKotlinAndroid(this)
 				configureAndroidCompose(this)
 
