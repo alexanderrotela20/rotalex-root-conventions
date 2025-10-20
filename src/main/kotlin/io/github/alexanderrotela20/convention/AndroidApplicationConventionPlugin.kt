@@ -19,10 +19,10 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 	override fun apply(target: Project) {
 		with(target) {
 			with(pluginManager) {
-				apply(libs.findPlugin("android-application").get().get().pluginId)
-				apply(libs.findPlugin("kotlin-android").get().get().pluginId)
-				apply(libs.findPlugin("compose").get().get().pluginId)
-				apply(libs.findPlugin("kotlin-serialization").get().get().pluginId)
+				apply("com.android.application")
+				apply("org.jetbrains.kotlin.plugin.compose")
+				apply("org.jetbrains.kotlin.android")
+				apply("org.jetbrains.kotlin.plugin.serialization")
 				apply(rotalexConvention("android.lint"))
 				//apply("com.dropbox.dependency-guard")
 			}
@@ -62,11 +62,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
 				testOptions.animationsDisabled = true
 				dependenciesInfo.includeInApk = false
-			}
-
-			extensions.configure<ApplicationAndroidComponentsExtension> {
-				//configurePrintApksTask(this)
-				//configureBadgingTasks(extensions.getByType<BaseExtension>(), this)
 			}
 		}
 	}

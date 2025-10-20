@@ -13,8 +13,8 @@ class KotlinMultiplatformLibraryComposeConventionPlugin : Plugin<Project> {
 		with(target) {
 			with(pluginManager) {
 				apply(rotalexConvention("kotlin.multiplatform.library"))
-				apply(libs.findPlugin("compose").get().get().pluginId)
-				apply(libs.findPlugin("composeMultiplatform").get().get().pluginId)
+				apply("org.jetbrains.kotlin.plugin.compose")
+				apply("org.jetbrains.compose")
 			}
 			configure<KotlinMultiplatformExtension> {
 				addComposeMultiplatformDependencies()

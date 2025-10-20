@@ -15,7 +15,7 @@ class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
 		with(target) {
 			pluginManager.apply {
 				apply(rotalexConvention("android.library"))
-				apply(libs.findPlugin("compose").get().get().pluginId)
+				apply("org.jetbrains.kotlin.plugin.compose")
 			}
 			extensions.getByType<LibraryExtension>().apply {
 				configureAndroidCompose(this)

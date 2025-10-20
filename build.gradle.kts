@@ -1,5 +1,3 @@
-import com.vanniktech.maven.publish.GradlePlugin
-import com.vanniktech.maven.publish.JavadocJar
 import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -46,31 +44,38 @@ gradlePlugin {
 	plugins {
 		register("androidApplication") {
 			id = libs.plugins.convention.android.application.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidApplicationConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidApplicationConventionPlugin"
 		}
 		register("androidLibrary") {
 			id = libs.plugins.convention.android.library.asProvider().get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidLibraryConventionPlugin"
 		}
 		register("androidLibraryCompose") {
 			id = libs.plugins.convention.android.library.compose.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryComposeConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidLibraryComposeConventionPlugin"
 		}
 		register("androidLibraryNative") {
 			id = libs.plugins.convention.android.library.native.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidLibraryNativeConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidLibraryNativeConventionPlugin"
 		}
 		register("androidTest") {
 			id = libs.plugins.convention.android.test.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidTestConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidTestConventionPlugin"
 		}
 		register("androidLint") {
 			id = libs.plugins.convention.android.lint.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.AndroidLintConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.AndroidLintConventionPlugin"
 		}
 		register("jvmLibrary") {
 			id = libs.plugins.convention.jvm.library.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.JvmLibraryConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.JvmLibraryConventionPlugin"
 		}
 		register("kotlinMultiplatformLibrary") {
 			id = libs.plugins.convention.kotlin.multiplatform.library.asProvider().get().pluginId
@@ -88,7 +93,8 @@ gradlePlugin {
 		}
 		register("koinAnnotations") {
 			id = libs.plugins.convention.koin.annotations.get().pluginId
-			implementationClass = "io.github.alexanderrotela20.convention.KoinAnnotationsConventionPlugin"
+			implementationClass =
+				"io.github.alexanderrotela20.convention.KoinAnnotationsConventionPlugin"
 		}
 		register("ksp") {
 			id = libs.plugins.convention.ksp.get().pluginId
@@ -106,7 +112,8 @@ project.configure<MavenPublishBaseExtension> {
 	)
 	pom {
 		name = "Gradle Conventions for Rotalex Projects"
-		description = "A reusable set of Gradle convention plugins to streamline the build process for my projects."
+		description =
+			"A reusable set of Gradle convention plugins to streamline the build process for my projects."
 		inceptionYear = "2025"
 		url = "https://github.com/alexanderrotela20/rotalex-root-conventions"
 		licenses {

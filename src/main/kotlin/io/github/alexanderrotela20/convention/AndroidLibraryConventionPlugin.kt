@@ -17,21 +17,20 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 	override fun apply(target: Project) {
 		with(target) {
 			with(pluginManager) {
-				apply(libs.findPlugin("android-library").get().get().pluginId)
-				apply(libs.findPlugin("kotlin-android").get().get().pluginId)
-				apply(libs.findPlugin("kotlin-serialization").get().get().pluginId)
+				apply("com.android.library")
+				apply("org.jetbrains.kotlin.android")
+				apply("org.jetbrains.kotlin.plugin.serialization")
 				apply(rotalexConvention("android.lint"))
 			}
 
-			extensions.configure<LibraryExtension> {
+			configure<LibraryExtension> {
 				configureKotlinAndroid(this)
 				defaultConfig.targetSdk = androidTargetSdk
 				defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 				testOptions.animationsDisabled = true
 				resourcePrefix = path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_").lowercase() + "_"
 			}
-			extensions.configure<LibraryAndroidComponentsExtension> {
-				//configurePrintApksTask(this)
+			configure<LibraryAndroidComponentsExtension> {
 				disableUnnecessaryAndroidTests(target)
 			}
 			dependencies {
