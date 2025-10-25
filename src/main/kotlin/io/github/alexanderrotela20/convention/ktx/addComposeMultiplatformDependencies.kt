@@ -2,12 +2,12 @@ package io.github.alexanderrotela20.convention.ktx
 
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.invoke
-import org.jetbrains.compose.ComposeExtension
+import org.jetbrains.compose.ComposePlugin
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 fun KotlinMultiplatformExtension.addComposeMultiplatformDependencies() {
 	sourceSets {
-		val compose = extensions.getByType<ComposeExtension>().dependencies
+		val compose = extensions.getByType<ComposePlugin.Dependencies>()
 		commonMain.dependencies {
 			implementation(compose.runtime)
 			implementation(compose.foundation)
