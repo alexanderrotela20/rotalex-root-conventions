@@ -15,52 +15,52 @@ import org.gradle.kotlin.dsl.invoke
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 class KotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
-	override fun apply(target: Project) {
-		with(target) {
-			with(pluginManager) {
-				apply("org.jetbrains.kotlin.multiplatform")
-				apply("com.android.library")
-				apply("org.jetbrains.kotlin.plugin.serialization")
-			}
+    override fun apply(target: Project) {
+        with(target) {
+            with(pluginManager) {
+                apply("org.jetbrains.kotlin.multiplatform")
+                apply("com.android.library")
+                apply("org.jetbrains.kotlin.plugin.serialization")
+            }
 
-			configure<KotlinMultiplatformExtension> {
-				jvmToolchain(17)
+            configure<KotlinMultiplatformExtension> {
+                jvmToolchain(17)
 
-				androidTarget()
-				jvm("desktop")
+                androidTarget()
+                jvm("desktop")
 
-				sourceSets {
-					val desktopMain by named("desktopMain")
-					commonMain.dependencies {
-						implementation( libs.findLibrary("kotlinx.coroutines.core").get())
-						implementation(libs.findLibrary("kotlinx.datetime").get())
-						implementation(libs.findLibrary("kotlinx.serialization.json").get())
-					}
-					androidMain.dependencies {
-						implementation( libs.findLibrary("kotlinx.coroutines.android").get())
-					}
-					desktopMain.dependencies {
-						implementation( libs.findLibrary("kotlinx.coroutines.swing").get())
-					}
-				}
-			}
-			configure<LibraryExtension> {
-				compileSdk = androidCompileSdk
-				buildToolsVersion = buildTools
-				defaultConfig {
-					minSdk = androidMinSdk
-				}
-				buildTypes {
-					release {
-						isMinifyEnabled = false
-					}
-				}
-				compileOptions {
-					sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-					targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-				}
-			}
-		}
-	}
+                sourceSets {
+                    val desktopMain by named("desktopMain")
+                    commonMain.dependencies {
+                        implementation(libs.findLibrary("kotlinx.coroutines.core").get())
+                        implementation(libs.findLibrary("kotlinx.datetime").get())
+                        implementation(libs.findLibrary("kotlinx.serialization.json").get())
+                    }
+                    androidMain.dependencies {
+                        implementation(libs.findLibrary("kotlinx.coroutines.android").get())
+                    }
+                    desktopMain.dependencies {
+                        implementation(libs.findLibrary("kotlinx.coroutines.swing").get())
+                    }
+                }
+            }
+            configure<LibraryExtension> {
+                compileSdk = androidCompileSdk
+                buildToolsVersion = buildTools
+                defaultConfig {
+                    minSdk = androidMinSdk
+                }
+                buildTypes {
+                    release {
+                        isMinifyEnabled = false
+                    }
+                }
+                compileOptions {
+                    sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+                    targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+                }
+            }
+        }
+    }
 
 }

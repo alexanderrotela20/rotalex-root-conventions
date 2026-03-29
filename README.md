@@ -24,8 +24,8 @@ import io.github.alexanderrotela20.androidLibrary
 import io.github.alexanderrotela20.androidLibraryCompose
 
 plugins {
-	androidLibrary()
-	androidLibraryCompose()
+    androidLibrary()
+    androidLibraryCompose()
 }
 ```
 

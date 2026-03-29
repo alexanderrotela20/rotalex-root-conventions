@@ -6,23 +6,23 @@ import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 
 internal fun Project.configureKotlinAndroid(
-	commonExtension: CommonExtension<*, *, *, *, *, *>
+    commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
-	commonExtension.apply {
-		compileSdk = androidCompileSdk
-		buildToolsVersion = buildTools
+    commonExtension.apply {
+        compileSdk = androidCompileSdk
+        buildToolsVersion = buildTools
 
-		defaultConfig {
-			minSdk = androidMinSdk
-		}
+        defaultConfig {
+            minSdk = androidMinSdk
+        }
 
-		compileOptions {
-			sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-			targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-		}
-	}
+        compileOptions {
+            sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+            targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+        }
+    }
 
-	configureKotlin<KotlinAndroidProjectExtension>()
+    configureKotlin<KotlinAndroidProjectExtension>()
 
 
 }

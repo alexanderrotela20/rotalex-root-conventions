@@ -7,10 +7,10 @@ import org.gradle.kotlin.dsl.configure
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 internal fun Project.configureKotlinJvm() {
-	extensions.configure<JavaPluginExtension> {
-		sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-		targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-	}
+    extensions.configure<JavaPluginExtension> {
+        sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+        targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
+    }
 
-	configureKotlin<KotlinJvmProjectExtension>()
+    configureKotlin<KotlinJvmProjectExtension>()
 }

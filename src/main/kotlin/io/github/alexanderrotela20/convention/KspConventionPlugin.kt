@@ -10,20 +10,20 @@ import org.gradle.kotlin.dsl.configure
 
 
 class KspConventionPlugin : Plugin<Project> {
-	override fun apply(target: Project) {
-		with(target) {
-			pluginManager.apply("com.google.devtools.ksp")
-			when {
-				pluginManager.hasPlugin("com.android.application") ->
-					configure<ApplicationExtension>(::configureKsp)
+    override fun apply(target: Project) {
+        with(target) {
+            pluginManager.apply("com.google.devtools.ksp")
+            when {
+                pluginManager.hasPlugin("com.android.application") ->
+                    configure<ApplicationExtension>(::configureKsp)
 
-				pluginManager.hasPlugin("com.android.library") ->
-					configure<LibraryExtension>(::configureKsp)
+                pluginManager.hasPlugin("com.android.library") ->
+                    configure<LibraryExtension>(::configureKsp)
 
-				else -> {
-					throw GradleException("The plugin 'idroid.ksp' cannot be applied.")
-				}
-			}
-		}
-	}
+                else -> {
+                    throw GradleException("The plugin 'idroid.ksp' cannot be applied.")
+                }
+            }
+        }
+    }
 }

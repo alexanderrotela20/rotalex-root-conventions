@@ -12,45 +12,45 @@ import org.gradle.kotlin.dsl.configure
 import java.io.File
 
 class AndroidLibraryNativeConventionPlugin : Plugin<Project> {
-	override fun apply(target: Project) {
-		with(target) {
-			when {
-				pluginManager.hasPlugin("com.android.application") ->
-					configure<ApplicationExtension>(::configureAndroidNative)
+    override fun apply(target: Project) {
+        with(target) {
+            when {
+                pluginManager.hasPlugin("com.android.application") ->
+                    configure<ApplicationExtension>(::configureAndroidNative)
 
-				pluginManager.hasPlugin("com.android.library") ->
-					configure<LibraryExtension>(::configureAndroidNative)
+                pluginManager.hasPlugin("com.android.library") ->
+                    configure<LibraryExtension>(::configureAndroidNative)
 
-				else -> {
-					throw GradleException("The plugin 'io.github.alexanderrotela20.convention.android-library-native' cannot be applied.")
-				}
-			}
-		}
-	}
+                else -> {
+                    throw GradleException("The plugin 'io.github.alexanderrotela20.convention.android-library-native' cannot be applied.")
+                }
+            }
+        }
+    }
 }
 
 private fun Project.configureAndroidNative(
-	commonExtension: CommonExtension<*, *, *, *, *, *>
+    commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
-	commonExtension.apply {
-		splits {
-			abi {
-				isEnable = true
-				reset()
-				if (false) { // To Modify comming soon
-					include("arm64-v8a", "x86_64", "armeabi-v7a", "x86")
-					isUniversalApk = true
-				} else {
-					include("arm64-v8a")
-				}
-			}
-		}
+    commonExtension.apply {
+        splits {
+            abi {
+                isEnable = true
+                reset()
+                if (false) { // To Modify comming soon
+                    include("arm64-v8a", "x86_64", "armeabi-v7a", "x86")
+                    isUniversalApk = true
+                } else {
+                    include("arm64-v8a")
+                }
+            }
+        }
 
-		externalNativeBuild {
-			cmake {
-				path = File("src/main/cpp/CMakeLists.txt")
-			}
-		}
-		ndkVersion = androidNdkVersion
-	}
+        externalNativeBuild {
+            cmake {
+                path = File("src/main/cpp/CMakeLists.txt")
+            }
+        }
+        ndkVersion = androidNdkVersion
+    }
 }

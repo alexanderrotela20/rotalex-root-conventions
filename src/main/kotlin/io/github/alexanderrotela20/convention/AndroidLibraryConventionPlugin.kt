@@ -14,32 +14,34 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.kotlin
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
-	override fun apply(target: Project) {
-		with(target) {
-			with(pluginManager) {
-				apply("com.android.library")
-				apply("org.jetbrains.kotlin.android")
-				apply("org.jetbrains.kotlin.plugin.serialization")
-				apply(rotalexConvention("android.lint"))
-			}
+    override fun apply(target: Project) {
+        with(target) {
+            with(pluginManager) {
+                apply("com.android.library")
+                apply("org.jetbrains.kotlin.android")
+                apply("org.jetbrains.kotlin.plugin.serialization")
+                apply(rotalexConvention("android.lint"))
+            }
 
-			configure<LibraryExtension> {
-				configureKotlinAndroid(this)
-				defaultConfig.targetSdk = androidTargetSdk
-				defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-				testOptions.animationsDisabled = true
-				resourcePrefix = path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_").lowercase() + "_"
-			}
-			configure<LibraryAndroidComponentsExtension> {
-				disableUnnecessaryAndroidTests(target)
-			}
-			dependencies {
-				add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
-				add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
+            configure<LibraryExtension> {
+                configureKotlinAndroid(this)
+                defaultConfig.targetSdk = androidTargetSdk
+                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                testOptions.animationsDisabled = true
+                resourcePrefix =
+                    path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_")
+                        .lowercase() + "_"
+            }
+            configure<LibraryAndroidComponentsExtension> {
+                disableUnnecessaryAndroidTests(target)
+            }
+            dependencies {
+                add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
+                add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
 
-				add("androidTestImplementation", kotlin("test"))
-				add("testImplementation", kotlin("test"))
-			}
-		}
-	}
+                add("androidTestImplementation", kotlin("test"))
+                add("testImplementation", kotlin("test"))
+            }
+        }
+    }
 }

@@ -9,26 +9,26 @@ import org.jetbrains.kotlin.compose.compiler.gradle.ComposeCompilerGradlePluginE
 
 
 internal fun Project.configureAndroidCompose(
-	commonExtension: CommonExtension<*, *, *, *, *, *>
+    commonExtension: CommonExtension<*, *, *, *, *, *>
 ) {
-	commonExtension.apply {
+    commonExtension.apply {
 
-		buildFeatures {
-			compose = true
-		}
+        buildFeatures {
+            compose = true
+        }
 
-		dependencies {
-			val bom = libs.findLibrary("androidx-compose-bom").get()
-			add("implementation", platform(bom))
-			add("androidTestImplementation", platform(bom))
-			add("implementation", libs.findLibrary("androidx-compose-ui-tooling-preview").get())
-			add("debugImplementation", libs.findLibrary("androidx-compose-ui-tooling").get())
-		}
+        dependencies {
+            val bom = libs.findLibrary("androidx-compose-bom").get()
+            add("implementation", platform(bom))
+            add("androidTestImplementation", platform(bom))
+            add("implementation", libs.findLibrary("androidx-compose-ui-tooling-preview").get())
+            add("debugImplementation", libs.findLibrary("androidx-compose-ui-tooling").get())
+        }
 
-	}
+    }
 
-	extensions.configure<ComposeCompilerGradlePluginExtension> {
-		reportsDestination.set(layout.buildDirectory.dir("compose_compiler"))
-		metricsDestination.set(layout.buildDirectory.dir("compose_compiler"))
-	}
+    extensions.configure<ComposeCompilerGradlePluginExtension> {
+        reportsDestination.set(layout.buildDirectory.dir("compose_compiler"))
+        metricsDestination.set(layout.buildDirectory.dir("compose_compiler"))
+    }
 }
