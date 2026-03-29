@@ -1,6 +1,6 @@
 package io.github.alexanderrotela20.convention
 
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import io.github.alexanderrotela20.convention.ktx.configureAndroidCompose
 import io.github.alexanderrotela20.convention.ktx.rotalexConvention
 import org.gradle.api.Plugin

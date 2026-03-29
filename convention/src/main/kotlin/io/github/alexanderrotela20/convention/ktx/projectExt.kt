@@ -9,7 +9,7 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
 val Project.libs
-    get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("rootLibs")
 
 val Project.androidCompileSdk: Int
     get() = Integer.valueOf(libs.findVersion("androidCompileSdk").get().toString())

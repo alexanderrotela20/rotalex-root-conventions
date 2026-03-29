@@ -1,8 +1,7 @@
 package io.github.alexanderrotela20.convention
 
+import com.android.build.api.dsl.LibraryExtension
 import com.android.build.api.variant.LibraryAndroidComponentsExtension
-import com.android.build.gradle.LibraryExtension
-import io.github.alexanderrotela20.convention.ktx.androidTargetSdk
 import io.github.alexanderrotela20.convention.ktx.configureKotlinAndroid
 import io.github.alexanderrotela20.convention.ktx.disableUnnecessaryAndroidTests
 import io.github.alexanderrotela20.convention.ktx.libs
@@ -18,29 +17,19 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("com.android.library")
-                apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.plugin.serialization")
                 apply(rotalexConvention("android.lint"))
             }
 
-            configure<LibraryExtension> {
-                configureKotlinAndroid(this)
-                defaultConfig.targetSdk = androidTargetSdk
-                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-                testOptions.animationsDisabled = true
-                resourcePrefix =
-                    path.split("""\W""".toRegex()).drop(1).distinct().joinToString(separator = "_")
-                        .lowercase() + "_"
-            }
             configure<LibraryAndroidComponentsExtension> {
+                this.finalizeDsl {
+                    configureKotlinAndroid(it)
+                }
                 disableUnnecessaryAndroidTests(target)
             }
             dependencies {
                 add("implementation", libs.findLibrary("kotlinx.coroutines.android").get())
-                add("implementation", libs.findLibrary("kotlinx.serialization.json").get())
-
-                add("androidTestImplementation", kotlin("test"))
-                add("testImplementation", kotlin("test"))
+                add("implementation", libs.findLibrary("kotlinx.serialization.core").get())
             }
         }
     }

@@ -1,0 +1,107 @@
+[versions]
+#########################
+androidCompileSdk = "36"
+androidMinSdk = "26"
+androidTargetSdk = "36"
+androidNdkVersion = "29.0.14206865"
+jvmTarget = "17"
+buildToolsVersion = "36.0.0"
+#######################
+
+androidGradlePlugin = "9.1.0"
+androidTools = "31.4.1"
+androidx-compose-bom = "2026.03.01"
+compose-multiplatform = "1.10.1"
+compose-material3 = "1.10.0-alpha05"
+jetbrains-androidx-lifecycle = "2.9.5" #"2.10.0-alpha08"
+jetbrains-androidx-navigationevent = "1.0.1"
+jetbrains-androidx-navigation3 = "1.1.0-alpha02"
+jetbrains-compose-material3-adaptive = "1.3.0-alpha04"
+jetbrains-compose-material-icons-extended = "1.7.3"
+kotlin = "2.3.0"
+kotlinx-coroutines = "1.10.2"
+kotlinx-datetime = "0.7.1"
+kotlinx-serialization = "1.9.0"
+koin-bom = "4.1.0"
+ksp = "2.3.6"
+gradleMavenPublish = "0.34.0"
+
+[libraries]
+# Kotlin Multiplatform and Compose Multiplatform Dependecies
+jetbrains-compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
+jetbrains-compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-multiplatform" }
+jetbrains-compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-multiplatform" }
+jetbrains-compose-ui-util = { module = "org.jetbrains.compose.ui:ui-util", version.ref = "compose-multiplatform" }
+jetbrains-compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose-multiplatform" }
+jetbrains-compose-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "jetbrains-compose-material-icons-extended" }
+jetbrains-compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "compose-material3" }
+jetbrains-compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "compose-multiplatform" }
+jetbrains-androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "jetbrains-androidx-lifecycle" }
+jetbrains-androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "jetbrains-androidx-lifecycle" }
+jetbrains-androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "jetbrains-androidx-lifecycle" }
+jetbrains-androidx-lifecycle-viewmodel-navigation3 = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-navigation3", version.ref = "jetbrains-androidx-lifecycle" }
+jetbrains-androidx-navigationevent = { module = "org.jetbrains.androidx.navigationevent:navigationevent-compose", version.ref = "jetbrains-androidx-navigationevent" }
+jetbrains-androidx-navigation3-ui = { module = "org.jetbrains.androidx.navigation3:navigation3-ui", version.ref = "jetbrains-androidx-navigation3" }
+jetbrains-compose-material3-adaptive = { module = "org.jetbrains.compose.material3.adaptive:adaptive", version.ref = "jetbrains-compose-material3-adaptive" }
+jetbrains-compose-material3-adaptive-navigation3 = { module = "org.jetbrains.compose.material3.adaptive:adaptive-navigation3", version.ref = "jetbrains-compose-material3-adaptive" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+kotlinx-serialization-cbor = { module = "org.jetbrains.kotlinx:kotlinx-serialization-cbor", version.ref = "kotlinx-serialization" }
+kotlin-reflection = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin"}
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-core-coroutines = { module = "io.insert-koin:koin-core-coroutines" }
+koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+
+# Android Dependecies
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidx-compose-bom" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout" }
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-material3-adaptive = { module = "androidx.compose.material3.adaptive:adaptive" }
+androidx-compose-material3-adaptive-layout = { module = "androidx.compose.material3.adaptive:adaptive-layout" }
+androidx-compose-material3-windowSizeClass = { module = "androidx.compose.material3:material3-window-size-class" }
+androidx-compose-runtime = { module = "androidx.compose.runtime:runtime" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-util = { module = "androidx.compose.ui:ui-util" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+koin-android = { module = "io.insert-koin:koin-android" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
+koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager" }
+
+# Desktop Dependencies
+jetbrains-compose-components-splitpane-desktop = { module = "org.jetbrains.compose.components:components-splitpane-desktop", version.ref = "compose-multiplatform" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+android-tools-common-gradlePlugin = { module = "com.android.tools:common", version.ref = "androidTools" }
+compose-compiler-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
+compose-gradlePlugin = { module = "org.jetbrains.compose:org.jetbrains.compose.gradle.plugin", version.ref = "compose-multiplatform" }
+kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+ksp-gradlePlugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+mavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "gradleMavenPublish" }
+
+[plugins]
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "gradleMavenPublish" }
+
+# Plugins defined by this project
+convention-android-application = { id = "io.github.alexanderrotela20.convention.android.application" }
+convention-android-library = { id = "io.github.alexanderrotela20.convention.android.library" }
+convention-android-library-compose = { id = "io.github.alexanderrotela20.convention.android.library.compose" }
+convention-android-library-native = { id = "io.github.alexanderrotela20.convention.android.library.native" }
+convention-android-lint = { id = "io.github.alexanderrotela20.convention.android.lint" }
+convention-android-test = { id = "io.github.alexanderrotela20.convention.android.test" }
+convention-jvm-library = { id = "io.github.alexanderrotela20.convention.jvm.library" }
+convention-kotlin-multiplatform-library = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library" }
+convention-kotlin-multiplatform-library-compose = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library.compose" }
+convention-koin = { id = "io.github.alexanderrotela20.convention.koin" }
+convention-koin-annotations = { id = "io.github.alexanderrotela20.convention.koin.annotations" }
+convention-ksp = { id = "io.github.alexanderrotela20.convention.ksp" }
+

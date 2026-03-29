@@ -1,14 +1,18 @@
 package io.github.alexanderrotela20.convention
 
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import io.github.alexanderrotela20.convention.ktx.androidCompileSdk
 import io.github.alexanderrotela20.convention.ktx.androidMinSdk
 import io.github.alexanderrotela20.convention.ktx.buildTools
+import io.github.alexanderrotela20.convention.ktx.configureKotlin
 import io.github.alexanderrotela20.convention.ktx.jvmTargetVersion
 import io.github.alexanderrotela20.convention.ktx.libs
+import org.gradle.api.Action
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.ExtensionAware
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getValue
 import org.gradle.kotlin.dsl.invoke
@@ -19,14 +23,16 @@ class KotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.multiplatform")
-                apply("com.android.library")
+                apply("com.android.kotlin.multiplatform.library")
                 apply("org.jetbrains.kotlin.plugin.serialization")
             }
-
             configure<KotlinMultiplatformExtension> {
-                jvmToolchain(17)
+                configure<KotlinMultiplatformAndroidLibraryTarget>{
+                    compileSdk = androidCompileSdk
+                    buildToolsVersion = buildTools
+                    minSdk = androidMinSdk
+                }
 
-                androidTarget()
                 jvm("desktop")
 
                 sourceSets {
@@ -34,7 +40,7 @@ class KotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
                     commonMain.dependencies {
                         implementation(libs.findLibrary("kotlinx.coroutines.core").get())
                         implementation(libs.findLibrary("kotlinx.datetime").get())
-                        implementation(libs.findLibrary("kotlinx.serialization.json").get())
+                        implementation(libs.findLibrary("kotlinx.serialization.core").get())
                     }
                     androidMain.dependencies {
                         implementation(libs.findLibrary("kotlinx.coroutines.android").get())
@@ -44,22 +50,7 @@ class KotlinMultiplatformLibraryConventionPlugin : Plugin<Project> {
                     }
                 }
             }
-            configure<LibraryExtension> {
-                compileSdk = androidCompileSdk
-                buildToolsVersion = buildTools
-                defaultConfig {
-                    minSdk = androidMinSdk
-                }
-                buildTypes {
-                    release {
-                        isMinifyEnabled = false
-                    }
-                }
-                compileOptions {
-                    sourceCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-                    targetCompatibility = JavaVersion.toVersion(jvmTargetVersion)
-                }
-            }
+            configureKotlin()
         }
     }
 

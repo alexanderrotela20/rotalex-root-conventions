@@ -1,6 +1,6 @@
 package io.github.alexanderrotela20.convention
 
-import com.android.build.gradle.TestExtension
+import com.android.build.api.dsl.TestExtension
 import io.github.alexanderrotela20.convention.ktx.androidTargetSdk
 import io.github.alexanderrotela20.convention.ktx.configureKotlinAndroid
 import io.github.alexanderrotela20.convention.ktx.libs
@@ -13,7 +13,6 @@ class AndroidTestConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply(libs.findPlugin("android-test").get().get().pluginId)
-                apply(libs.findPlugin("kotlin-android").get().get().pluginId)
             }
 
             extensions.configure<TestExtension> {

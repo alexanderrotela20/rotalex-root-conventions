@@ -1,7 +1,7 @@
 package io.github.alexanderrotela20.convention
 
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.gradle.LibraryExtension
+import com.android.build.api.dsl.LibraryExtension
 import io.github.alexanderrotela20.convention.ktx.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -15,8 +15,7 @@ class KoinConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             if (
-                plugins.hasPlugin("com.android.library")
-                    .or(plugins.hasPlugin("com.android.application"))
+                plugins.hasPlugin("com.android.kotlin.multiplatform.library")
                     .and(plugins.hasPlugin("org.jetbrains.kotlin.multiplatform"))
             ) {
                 configure<KotlinMultiplatformExtension> {

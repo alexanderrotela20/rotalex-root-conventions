@@ -17,9 +17,11 @@ dependencyResolutionManagement {
 	}
 	versionCatalogs {
 		create("libs") {
-			from(files("gradle/libs.versions.toml"))
+			from(files("catalog/libs.versions.toml"))
 		}
 	}
 }
 
 rootProject.name = "rotalex-root-conventions"
+include(":convention")
+include(":catalog")

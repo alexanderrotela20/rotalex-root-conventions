@@ -17,11 +17,8 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("com.android.application")
-                apply("org.jetbrains.kotlin.plugin.compose")
-                apply("org.jetbrains.kotlin.android")
                 apply("org.jetbrains.kotlin.plugin.serialization")
                 apply(rotalexConvention("android.lint"))
-                //apply("com.dropbox.dependency-guard")
             }
 
             configure<ApplicationExtension> {
@@ -57,8 +54,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                         applicationIdSuffix = BuildType.DEBUG.applicationIdSuffix
                     }
                 }
-
-                testOptions.animationsDisabled = true
                 dependenciesInfo.includeInApk = false
             }
         }
