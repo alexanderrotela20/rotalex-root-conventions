@@ -4,15 +4,16 @@ A reusable set of Gradle convention plugins to streamline the build process for 
 
 ## 📜 Description
 
-This project centralizes the build logic for my Android and Kotlin Multiplatform (KMP) projects,
+This project centralizes the build logic for my Android, Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) projects,
 ensuring consistency and reducing boilerplate code in the `build.gradle.kts` files.
 
 ## ✨ Features
 
 - **Android Application Plugin:** Basic configuration for Android applications.
 - **Android Library Plugin:** Basic configuration for Android libraries.
-- **Compose Plugin:** Adds Compose-specific dependencies and configurations.
+- **Android Library Compose Plugin:** Adds Compose-specific dependencies and configurations for Android libraries.
 - **Kotlin Multiplatform Plugin:** Adds KMP-specific dependencies and configurations.
+- **Compose Multiplatform Plugin:** Adds CMP-specific dependencies and configurations.
 
 ## 🚀 Usage
 

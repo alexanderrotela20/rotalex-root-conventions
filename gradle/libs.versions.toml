@@ -1,19 +1,19 @@
 [versions]
 #########################
-androidCompileSdk = "35"
+androidCompileSdk = "36"
 androidMinSdk = "26"
-androidTargetSdk = "35"
-androidNdkVersion = "27.0.12077973"
+androidTargetSdk = "36"
+androidNdkVersion = "29.0.14206865"
 jvmTarget = "17"
-buildToolsVersion = "35.0.0"
+buildToolsVersion = "36.0.0"
 #######################
 
 gradleMavenPublish = "0.34.0"
-androidGradlePlugin = "8.9.0"
+androidGradlePlugin = "9.1.0"
 androidTools = "31.4.1"
-compose = "1.8.2"
-kotlin = "2.2.0"
-ksp = "2.2.0-2.0.2"
+compose = "1.10.1"
+kotlin = "2.3.0"
+ksp = "2.3.6"
 
 [libraries]
 # Dependencies of the included build-logic

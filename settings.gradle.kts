@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 		maven { url = uri("https://repo.gradle.org/gradle/libs-releases/") }
 	}
 	versionCatalogs {
-		create("libsa") {
+		create("libs") {
 			from(files("gradle/libs.versions.toml"))
 		}
 	}
