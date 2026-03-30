@@ -89,6 +89,7 @@ ksp-gradlePlugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.g
 mavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "gradleMavenPublish" }
 
 [plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "gradleMavenPublish" }
 
 # Plugins defined by this project
@@ -104,4 +105,3 @@ convention-kotlin-multiplatform-library-compose = { id = "io.github.alexanderrot
 convention-koin = { id = "io.github.alexanderrotela20.convention.koin" }
 convention-koin-annotations = { id = "io.github.alexanderrotela20.convention.koin.annotations" }
 convention-ksp = { id = "io.github.alexanderrotela20.convention.ksp" }
-
