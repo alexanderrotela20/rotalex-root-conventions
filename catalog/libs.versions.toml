@@ -92,15 +92,6 @@ mavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vannikt
 
 [bundles]
 
-androidx-lifecycle = [
-    "androidx-lifecycle-livedata-ktx",
-    "androidx-lifecycle-viewmodel-ktx",
-    "androidx-lifecycle-runtimeCompose",
-    "androidx-lifecycle-viewModelCompose"
-]
-
-
-
 koin-android = [
     "koin-android",
     "koin-androidx-compose"
