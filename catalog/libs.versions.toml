@@ -25,6 +25,7 @@ kotlinx-serialization = "1.9.0"
 koin-bom = "4.1.0"
 ksp = "2.3.6"
 gradleMavenPublish = "0.34.0"
+convention-version = "1.1.5"
 
 [libraries]
 # Kotlin Multiplatform and Compose Multiplatform Dependecies
@@ -79,7 +80,7 @@ koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager
 jetbrains-compose-components-splitpane-desktop = { module = "org.jetbrains.compose.components:components-splitpane-desktop", version.ref = "compose-multiplatform" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 
-# Dependencies of the included build-logic
+# Gradle Plugin Dependencies
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
 android-tools-common-gradlePlugin = { module = "com.android.tools:common", version.ref = "androidTools" }
 compose-compiler-gradlePlugin = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
@@ -89,19 +90,28 @@ ksp-gradlePlugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.g
 mavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "gradleMavenPublish" }
 
 [plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidGradlePlugin" }
+android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "gradleMavenPublish" }
 
-# Plugins defined by this project
-convention-android-application = { id = "io.github.alexanderrotela20.convention.android.application" }
-convention-android-library = { id = "io.github.alexanderrotela20.convention.android.library" }
-convention-android-library-compose = { id = "io.github.alexanderrotela20.convention.android.library.compose" }
-convention-android-library-native = { id = "io.github.alexanderrotela20.convention.android.library.native" }
-convention-android-lint = { id = "io.github.alexanderrotela20.convention.android.lint" }
-convention-android-test = { id = "io.github.alexanderrotela20.convention.android.test" }
-convention-jvm-library = { id = "io.github.alexanderrotela20.convention.jvm.library" }
-convention-kotlin-multiplatform-library = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library" }
-convention-kotlin-multiplatform-library-compose = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library.compose" }
-convention-koin = { id = "io.github.alexanderrotela20.convention.koin" }
-convention-koin-annotations = { id = "io.github.alexanderrotela20.convention.koin.annotations" }
-convention-ksp = { id = "io.github.alexanderrotela20.convention.ksp" }
+# Plugins defined by :convention
+convention-android-application = { id = "io.github.alexanderrotela20.convention.android.application", version.ref = "convention-version" }
+convention-android-library = { id = "io.github.alexanderrotela20.convention.android.library", version.ref = "convention-version" }
+convention-android-library-compose = { id = "io.github.alexanderrotela20.convention.android.library.compose", version.ref = "convention-version" }
+convention-android-library-native = { id = "io.github.alexanderrotela20.convention.android.library.native", version.ref = "convention-version" }
+convention-android-lint = { id = "io.github.alexanderrotela20.convention.android.lint", version.ref = "convention-version" }
+convention-android-test = { id = "io.github.alexanderrotela20.convention.android.test", version.ref = "convention-version" }
+convention-jvm-library = { id = "io.github.alexanderrotela20.convention.jvm.library", version.ref = "convention-version" }
+convention-kotlin-multiplatform-library = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library", version.ref = "convention-version" }
+convention-kotlin-multiplatform-library-compose = { id = "io.github.alexanderrotela20.convention.kotlin.multiplatform.library.compose", version.ref = "convention-version" }
+convention-koin = { id = "io.github.alexanderrotela20.convention.koin", version.ref = "convention-version" }
+convention-koin-annotations = { id = "io.github.alexanderrotela20.convention.koin.annotations", version.ref = "convention-version" }
+convention-ksp = { id = "io.github.alexanderrotela20.convention.ksp", version.ref = "convention-version" }
