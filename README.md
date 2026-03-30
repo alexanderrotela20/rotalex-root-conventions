@@ -23,7 +23,7 @@ Add the remote catalog to your `settings.gradle.kts`:
 dependencyResolutionManagement {
     versionCatalogs {
         create("rootLibs") { 
-            from("io.github.alexanderrotela20:version-catalog:${latest-version}")
+            from("io.github.alexanderrotela20.catalog:version-catalog:${latest-version}")
         }
     }
 }
@@ -38,7 +38,7 @@ Apply the plugins in your module's `build.gradle.kts` using catalog aliases:
 ```kotlin
 plugins {
     alias(rootLibs.plugins.convention.android.library)
-    alias(rootLibs.plugins.convention.android.library.compose)
+    alias(rootLibs.plugins.convention.kotlin.multiplatform.library.compose)
     alias(rootLibs.plugins.convention.koin)
 }
 ```
