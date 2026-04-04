@@ -119,6 +119,7 @@ mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "gradleMaven
 
 # Plugins defined by :convention
 convention-android-application = { id = "io.github.alexanderrotela20.convention.android.application", version.ref = "convention-version" }
+convention-android-application-compose = { id = "io.github.alexanderrotela20.convention.android.application.compose", version.ref = "convention-version" }
 convention-android-library = { id = "io.github.alexanderrotela20.convention.android.library", version.ref = "convention-version" }
 convention-android-library-compose = { id = "io.github.alexanderrotela20.convention.android.library.compose", version.ref = "convention-version" }
 convention-android-library-native = { id = "io.github.alexanderrotela20.convention.android.library.native", version.ref = "convention-version" }
