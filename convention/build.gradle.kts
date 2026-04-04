@@ -38,7 +38,7 @@ tasks {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = libs.plugins.convention.android.application.get().pluginId
+            id = libs.plugins.convention.android.application.asProvider().get().pluginId
             implementationClass =
                 "io.github.alexanderrotela20.convention.AndroidApplicationConventionPlugin"
             displayName = "Android Application Convention Plugin"
