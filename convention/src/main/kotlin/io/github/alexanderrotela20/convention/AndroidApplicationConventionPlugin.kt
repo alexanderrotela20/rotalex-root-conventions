@@ -22,9 +22,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             }
 
             configure<ApplicationExtension> {
-
                 configureKotlinAndroid(this)
-                configureAndroidCompose(this)
 
                 defaultConfig {
                     targetSdk = androidTargetSdk

@@ -44,6 +44,15 @@ gradlePlugin {
             displayName = "Android Application Convention Plugin"
             description = "Gradle convention plugin for Android applications."
         }
+
+        register("androidApplicationCompose") {
+            id = libs.plugins.convention.android.application.compose.get().pluginId
+            implementationClass =
+                "io.github.alexanderrotela20.convention.AndroidApplicationComposeConventionPlugin"
+            displayName = "Android Application Compose Convention Plugin"
+            description = "Gradle convention plugin for Android applications with Jetpack Compose support."
+        }
+
         register("androidLibrary") {
             id = libs.plugins.convention.android.library.asProvider().get().pluginId
             implementationClass =
