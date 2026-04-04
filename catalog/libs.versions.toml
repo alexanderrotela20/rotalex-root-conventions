@@ -25,7 +25,7 @@ kotlinx-serialization = "1.10.0"
 koin-bom = "4.1.0"
 ksp = "2.3.6"
 gradleMavenPublish = "0.34.0"
-convention-version = "1.1.6"
+convention-version = "1.1.7"
 
 [libraries]
 # Kotlin Multiplatform and Compose Multiplatform Dependecies
