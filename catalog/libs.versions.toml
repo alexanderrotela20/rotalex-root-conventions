@@ -111,14 +111,16 @@ mavenPublish-gradlePlugin = { module = "com.vanniktech.maven.publish:com.vannikt
 [bundles]
 
 koin-android = [
-    "koin-android",
-    "koin-androidx-compose"
+    "koin-androidx-compose",
+    "koin-androidx-workmanager",
+    "koin-core-coroutines",
+    "koin-compose-navigation3"
 ]
 
 koin-multiplatform = [
-    "koin-core",
     "koin-core-coroutines",
     "koin-compose",
+    "koin-compose-navigation3",
     "koin-compose-viewmodel"
 ]
 
