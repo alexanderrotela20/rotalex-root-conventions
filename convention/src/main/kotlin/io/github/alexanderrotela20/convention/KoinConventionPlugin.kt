@@ -22,7 +22,8 @@ class KoinConventionPlugin : Plugin<Project> {
                     sourceSets {
                         androidMain {
                             dependencies {
-                                implementation(libs.findBundle("koin-android").get())
+                                implementation(libs.findLibrary("koin.androidx.compose").get())
+                                implementation(libs.findLibrary("koin.androidx.workmanager").get())
                             }
                         }
                         commonMain {
@@ -32,7 +33,7 @@ class KoinConventionPlugin : Plugin<Project> {
                                         libs.findLibrary("koin.bom").get()
                                     )
                                 )
-                                implementation(libs.findBundle("koin-multiplatform").get())
+                                implementation(libs.findBundle("koin.multiplatform").get())
                             }
                         }
                     }
@@ -42,14 +43,14 @@ class KoinConventionPlugin : Plugin<Project> {
                     configure<LibraryExtension> {
                         dependencies {
                             add("implementation", platform(libs.findLibrary("koin.bom").get()))
-                            add("implementation", libs.findBundle("koin-android").get())
+                            add("implementation", libs.findBundle("koin.android").get())
                         }
                     }
                 } else if (plugins.hasPlugin("com.android.application")) {
                     configure<ApplicationExtension> {
                         dependencies {
                             add("implementation", platform(libs.findLibrary("koin.bom").get()))
-                            add("implementation", libs.findBundle("koin-android").get())
+                            add("implementation", libs.findBundle("koin.android").get())
                         }
                     }
                 }

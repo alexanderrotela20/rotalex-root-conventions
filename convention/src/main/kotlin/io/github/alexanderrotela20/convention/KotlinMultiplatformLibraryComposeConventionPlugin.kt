@@ -23,17 +23,17 @@ class KotlinMultiplatformLibraryComposeConventionPlugin : Plugin<Project> {
                 sourceSets {
                     val compose = extensions.getByType<ComposePlugin.Dependencies>()
                     commonMain.dependencies {
-                        implementation(libs.findLibrary("jetbrains-compose-runtime").get())
-                        implementation(libs.findLibrary("jetbrains-compose-foundation").get())
-                        implementation(libs.findLibrary("jetbrains-compose-material-icons-extended").get())
-                        implementation(libs.findLibrary("jetbrains-compose-material3").get())
-                        implementation(libs.findLibrary("jetbrains-compose-ui").get())
-                        implementation(libs.findLibrary("jetbrains-compose-ui-util").get())
-                        implementation(libs.findLibrary("jetbrains-compose-ui-tooling-preview").get())
+                        implementation(libs.findLibrary("jetbrains.compose.runtime").get())
+                        implementation(libs.findLibrary("jetbrains.compose.foundation").get())
+                        implementation(libs.findLibrary("jetbrains.compose.material.icons.extended").get())
+                        implementation(libs.findLibrary("jetbrains.compose.material3").get())
+                        implementation(libs.findLibrary("jetbrains.compose.ui").get())
+                        implementation(libs.findLibrary("jetbrains.compose.ui.util").get())
+                        implementation(libs.findLibrary("jetbrains.compose.ui.tooling.preview").get())
                     }
                     named("desktopMain").dependencies {
                         implementation(compose.desktop.currentOs)
-                        implementation(libs.findLibrary("jetbrains-compose-components-splitpane-desktop").get())
+                        implementation(libs.findLibrary("jetbrains.compose.components.splitpane.desktop").get())
                     }
                 }
 
